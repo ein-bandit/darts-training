@@ -12,6 +12,7 @@
     "angular-mocks": "~1.4.0",
     "html5-boilerplate": "~5.2.0",
     "bootstrap": "^3.3.6",
-    "jquery": "^2.2.0"
+    "jquery": "^2.2.0",
+    "ngDraggable": "^0.1.8"
   }
 }

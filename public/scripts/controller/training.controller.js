@@ -20,13 +20,9 @@
             $scope.gameType = $scope.data.selectedGameType;
 
 
-            $scope.addToScore = function(event) {
-                var valueAsString = event.dataTransfer.getData('text');
-                $log.debug(valueAsString);
-                $scope.record.score += parseInt(valueAsString);
+            $scope.addToScore = function(data, event) {
+                $scope.record.score += data.value;
                 $log.debug($scope.record.score);
-                $scope.$apply();
-                event.preventDefault();
             };
 
         });
