@@ -3,7 +3,7 @@
  */
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test');
+mongoose.connect('mongodb://root:dt_root1@ds055895.mongolab.com:55895/darts-training');
 
 var User = mongoose.model('User', {username: String, password: String});
 var Gametype = mongoose.model('GameType', {type: String, values: Array, name: String});
