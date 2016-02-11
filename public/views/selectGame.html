@@ -1,0 +1,12 @@
+<div>
+    <h2>select training</h2>
+
+    <ul class="nav nav-pills nav-stacked main-links">
+        <li role="presentation" ng-repeat="gameType in data.gameTypes">
+            <a ng-click="data.selectedGameType = gameType"
+               ng-class="{'selected-game': gameType.name == data.selectedGameType.name}">{{gameType.name}}</a>
+        </li>
+    </ul>
+    <button class="btn btn-primary" style="float:right"
+            ng-disabled="data.selectedGameType == null" ng-click="redirect('training')">choose</button>
+</div>
