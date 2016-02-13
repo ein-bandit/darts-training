@@ -6,8 +6,7 @@
     'use strict';
 
     angular.module('darts-training-app')
-        .controller('TrainingController', function ($scope, $log, $location) {
-
+        .controller('TrainingController', function ($scope, $log, $uibModal, $location) {
 
             if (!angular.isDefined($scope.data.selectedGameType)) {
                 $location.path("selectGame")
@@ -16,13 +15,35 @@
                 score: 0,
                 date: new Date()
             };
+            $scope.isTrainingRunning = true;
+            $scope.currentRound = 0;
 
             $scope.gameType = $scope.data.selectedGameType;
 
-
             $scope.addToScore = function(data, event) {
-                $scope.record.score += data.value;
-                $log.debug($scope.record.score);
+                $scope.record.score += data;
+                //$log.debug($scope.record.score);
+                $scope.currentRound += 1;
+                if ($scope.currentRound == $scope.gameType.rounds.length) {
+                    $log.debug('show results');
+                    $scope.isTrainingRunning = false;
+                    $scope.open();
+                }
+            };
+
+
+            $scope.open = function (size) {
+                var modalInstance = $uibModal.open({
+                    animation: true,
+                    templateUrl: '../../views/endTrainingModal.html',
+                    controller: 'EndTrainingModalController',
+                    size: size,
+                    resolve: {
+                        data: function () {
+                            return { record: $scope.record, data: $scope.data};
+                        }
+                    }
+                });
             };
 
         });
