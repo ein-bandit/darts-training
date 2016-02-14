@@ -6,7 +6,7 @@
             <a ng-click="data.selectedGameType = gameType"
                ng-class="{'selected-game': gameType.name == data.selectedGameType.name}">{{gameType.name}}</a>
         </li>
-        <li>statistics</li>
+        <li><a>statistics</a></li>
     </ul>
     <button class="btn btn-primary" style="float:right"
             ng-disabled="data.selectedGameType == null" ng-click="redirect('training')">choose</button>
