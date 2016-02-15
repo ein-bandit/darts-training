@@ -17,6 +17,9 @@ angular.module('darts-training-app').config(['$routeProvider', function($routePr
     }).when('/training', {
         templateUrl: 'views/training.html',
         controller: 'TrainingController'
+    }).when('/login', {
+        templateUrl: 'views/home.html',
+        controller: 'LoginController'
     });
     $routeProvider.otherwise({redirectTo: '/'});
 }]);

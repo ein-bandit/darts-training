@@ -35,6 +35,8 @@
             $scope.open = function (size) {
                 var modalInstance = $uibModal.open({
                     animation: true,
+                    keyboard: false,
+                    backdrop: 'static',
                     templateUrl: '../../views/endTrainingModal.html',
                     controller: 'EndTrainingModalController',
                     size: size,

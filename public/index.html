@@ -22,7 +22,7 @@
 </head>
 <body>
 <div class="container-fluid main span7 table-bordered" ng-controller="MainController">
-    <div class="container-fluid">
+    <div class="container-fluid col-lg-6 center-block" style="float:none; border: 1px solid black;">
         <div ng-view></div>
     </div>
 </div>
@@ -41,6 +41,7 @@
 <script src="components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="components/angular-route/angular-route.js"></script>
 <script src="components/ngDraggable/ngDraggable.js"></script>
+<script src="components/angular-md5/angular-md5.js"></script>
 
 
 <script src="darts-training-app.js"></script>
@@ -50,6 +51,7 @@
 
 <script src="scripts/controller/main.controller.js"></script>
 <script src="scripts/controller/home.controller.js"></script>
+<script src="scripts/controller/login.controller.js"></script>
 <script src="scripts/controller/selectGame.controller.js"></script>
 <script src="scripts/controller/training.controller.js"></script>
 <script src="scripts/controller/endTrainingModal.controller.js"></script>

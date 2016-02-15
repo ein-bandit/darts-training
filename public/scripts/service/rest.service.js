@@ -11,12 +11,25 @@
             getData: function (path, query) {
                 var deferred = $q.defer();
 
-                var query = constants.rest + path + (angular.isDefined(query) ? '?' + query : '');
+                var querystring = constants.rest + path + (angular.isDefined(query) ? '?' + query : '');
 
-                $http.get(query, {cache: false})
+                $http.get(querystring, {cache: false})
                     .success(function (data) {
                         $log.debug('received:', data);
                         deferred.resolve(data);
+                    })
+                    .error(function () { //data
+                        $log.debug('error in getting data');
+                        deferred.reject();
+                    });
+                return deferred.promise;
+            },
+            postData: function(path, data) {
+                var deferred = $q.defer();
+                var query = constants.rest + path;
+                $http.post(query, data)
+                    .success(function(result) {
+                        deferred.resolve(result);
                     })
                     .error(function () { //data
                         $log.debug('error in getting data');

@@ -1,27 +1,32 @@
 <div class="row">
-    <div class="training-back-button">
+    <div class="training-back-button col-xs-2 col-md-1">
         <a href="#/selectGame"><span
                 class="glyphicon glyphicon-share-alt gly-rotate-180 gly-flip-horizontal"></span></a>
     </div>
-    <div>{{gameType.name}}</div>
-    <div class="col-xs-10 col-md-8" style="border: 1px solid black;">
+    <div class="training-title">{{gameType.name}}</div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-md-12" style="border: 1px solid black;">
         <label ng-repeat="round in gameType.rounds"
                ng-class="{'training-round-inactive' : $index != currentRound}"
                class="training-round">{{round}}</label>
     </div>
+</div>
+<div class="row">
     <div class="col-xs-8 col-md-6" style="border: 1px solid black;">
 
         <div class="training-dartboard" ng-if="gameType.type == 'board'">
             <img ng-src="resources/dartboard_{{gameType.rounds[currentRound]}}.png" class="img-dartboard">
         </div>
     </div>
-    <div class="pull-right .col-xs-4 .col-md-2" style="border: 1px solid black;" ng-drop="isTrainingRunning" ng-drop-success="addToScore($data,$event)">
+    <div class="pull-right .col-xs-4 .col-md-2" style="border: 1px solid black;" ng-drop="isTrainingRunning"
+         ng-drop-success="addToScore($data,$event)">
         <label class="training-record-score">{{record.score}}</label>
     </div>
 </div>
 <div class="row">
 
-    <div class="training-points col-xs-12 col-md-8" style="border: 1px solid black;">
+    <div class="training-points col-xs-12 col-md-12" style="border: 1px solid black;">
         <div ng-repeat="point in gameType.points" class="training-point">
             <label class="training-point" ng-drag="true" ng-drag-data="point" data-allow-transform="true">
                 {{point}}

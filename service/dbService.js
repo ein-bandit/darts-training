@@ -34,5 +34,11 @@ dbService.getGameTypes = function(callback) {
     });
 };
 
+dbService.findUser = function(username, callback) {
+    User.findOne({username: username}, function(err, user) {
+        callback(user);
+    });
+};
+
 
 module.exports = dbService;

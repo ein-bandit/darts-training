@@ -4,20 +4,18 @@
 
     <img src="resources/board_icon.png" class="img-circle main-icon"/>
 
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Login</h2>
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
-        <button class="btn btn-lg btn-primary btn-block" ng-click="redirect('selectGame')">Sign in</button>
-    </form>
+    <div ng-show="path == '/login'">
+        <div ng-include="'views/login.html'"></div>
+    </div>
+    <div ng-show="path != '/login'">
+        <button class="btn btn-lg btn-primary btn-block" ng-click="redirect()">start training</button>
+    </div>
 
     <h3>Instructions</h3>
     <div>
         <ul class="main-links">
             <li>how to play</li>
-            <li>how to install</li>
+            <li>how to install / save to phone+</li>
         </ul>
     </div>
 
