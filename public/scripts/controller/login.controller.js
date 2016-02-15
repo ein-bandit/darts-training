@@ -6,7 +6,7 @@
     'use strict';
 
     angular.module('darts-training-app')
-        .controller('LoginController', function ($scope, $log, $location, dataService) {
+        .controller('LoginController', function ($scope, $log, $location, $rootScope, dataService) {
 
             $scope.path = '/login';
 
@@ -23,6 +23,9 @@
                 dataService.performLogin($scope.tempUser).then(function(loginError) {
                     if (loginError) {
                         $scope.loginError = loginError;
+                    } else {
+                        $rootScope.user = $scope.tempUser;
+                        $location.path('/');
                     }
                 });
             };

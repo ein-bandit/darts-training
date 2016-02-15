@@ -21,7 +21,6 @@
                         {username: user.user, password: md5.createHash(user.password)}, true).then(function (data) {
                         if (data) {
                             $rootScope.auth = data;
-                            $location.path('/');
                             deferred.resolve(false);
 
                         } else {

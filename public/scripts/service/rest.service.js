@@ -5,7 +5,14 @@
 (function (angular) {
     'use strict';
 
-    angular.module('darts-training-app').factory('restService', function (constants,$rootScope, $http, $q, $log) {
+    angular.module('darts-training-app').factory('restService', function (constants, $rootScope, $location, $http, $q, $log) {
+
+        function logout(status) {
+            if (status == 401) {
+                $rootScope.auth = null;
+                $location.path('/login');
+            }
+        }
 
         return {
             getData: function (path, query) {
@@ -36,8 +43,9 @@
                     .success(function(result) {
                         deferred.resolve(result);
                     })
-                    .error(function () { //data
+                    .error(function (data) { //data
                         $log.debug('error in getting data');
+                        logout(data.status);
                         deferred.reject();
                     });
                 return deferred.promise;
