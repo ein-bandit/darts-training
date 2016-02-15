@@ -11,7 +11,7 @@
             $scope.path = $location.path();
 
             $scope.redirect = function() {
-                $location.path('#/selectGame');
+                $location.path('/selectGame');
             }
 
         });

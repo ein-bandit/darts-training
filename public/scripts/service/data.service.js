@@ -18,7 +18,7 @@
                 performLogin: function (user) {
                     var deferred = $q.defer();
                     restService.postData('/user/login',
-                        {username: user.user, password: md5.createHash(user.password)}).then(function (data) {
+                        {username: user.user, password: md5.createHash(user.password)}, true).then(function (data) {
                         if (data) {
                             $rootScope.auth = data;
                             $location.path('/');

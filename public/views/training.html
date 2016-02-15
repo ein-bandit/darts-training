@@ -16,7 +16,8 @@
     <div class="col-xs-8 col-md-6" style="border: 1px solid black;">
 
         <div class="training-dartboard" ng-if="gameType.type == 'board'">
-            <img ng-src="resources/dartboard_{{gameType.rounds[currentRound]}}.png" class="img-dartboard">
+            <img ng-src="resources/dartboard_{{gameType.rounds[currentRound]}}.png"
+                 fallback-src="resources/dartboard.png" class="img-dartboard">
         </div>
     </div>
     <div class="pull-right .col-xs-4 .col-md-2" style="border: 1px solid black;" ng-drop="isTrainingRunning"
