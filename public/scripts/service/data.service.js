@@ -17,10 +17,12 @@
                 },
                 performLogin: function (user) {
                     var deferred = $q.defer();
+                    var tempUser = user;
                     restService.postData('/user/login',
                         {username: user.user, password: md5.createHash(user.password)}, true).then(function (data) {
                         if (data) {
-                            $rootScope.auth = data;
+                            $rootScope.auth = data.auth;
+                            $rootScope.user = {username: tempUser.username, userId: data.userId}
                             deferred.resolve(false);
 
                         } else {

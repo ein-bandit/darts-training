@@ -16,15 +16,11 @@
             };
 
             $scope.loginError = false;
-            $scope.redirect = function (location) {
-                $location.path(location);
-            };
             $scope.login = function () {
                 dataService.performLogin($scope.tempUser).then(function(loginError) {
                     if (loginError) {
                         $scope.loginError = loginError;
                     } else {
-                        $rootScope.user = $scope.tempUser;
                         $location.path('/');
                     }
                 });

@@ -10,9 +10,12 @@ router.post('/user/login', function (req, res, next) {
     dbService.findUser(req.body.username, function (user) {
         if (user && user.password == req.body.password) {
             res.send({
-                username: user.username,
-                authToken: '',
-                validUntil: new Date().setDate(new Date().getDate() + 1)
+                auth: {
+                    username: user.username,
+                    authToken: '',
+                    validUntil: new Date().setDate(new Date().getDate() + 1)
+                },
+                userId: user._id
             });
         } else {
             res.send(null);

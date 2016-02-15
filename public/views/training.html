@@ -7,7 +7,7 @@
 </div>
 <div class="row">
     <div class="col-xs-12 col-md-12" style="border: 1px solid black;">
-        <label ng-repeat="round in gameType.rounds"
+        <label ng-repeat="round in gameType.rounds track by $index"
                ng-class="{'training-round-inactive' : $index != currentRound}"
                class="training-round">{{round}}</label>
     </div>
