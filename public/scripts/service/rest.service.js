@@ -20,7 +20,8 @@
 
                 var querystring = constants.rest + path + (angular.isDefined(query) ? '?' + query : '');
 
-                $http.get(querystring, {cache: false, headers: {'Authorization': 'Basic ' + $rootScope.auth.authToken}})
+                //, headers: {'Authorization': 'Basic ' + $rootScope.auth.authToken}
+                $http.get(querystring, {cache: false})
                     .success(function (data) {
                         $log.debug('received:', data);
                         deferred.resolve(data);
@@ -38,8 +39,8 @@
                 if (!isLogin) {
                     authHeader = {'Authorization': 'Basic ' + $rootScope.auth.authToken};
                 }
-
-                $http.post(query, data, {headers: authHeader})
+                //, {headers: authHeader}
+                $http.post(query, data)
                     .success(function(result) {
                         deferred.resolve(result);
                     })
